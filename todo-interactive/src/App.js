@@ -7,15 +7,17 @@ import Todo from './components/Todo';
 
 function App() {
     return (
-        <Router>
-          <div className="App">
-            <Routes>
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/" element={<Login />} />
-              <Route path="/index" element={<Todo />} />
-            </Routes>
-          </div>
-        </Router>
+        // <Router>
+        //   <div className="App">
+        //     <Routes>
+        //       <Route path="/signup" element={<Signup />} />
+        //       <Route path="/" element={<Login />} />
+        //       <Route path="/index" element={<Todo />} />
+        //     </Routes>
+        //   </div>
+        // </Router>
+
+        <Login />
       );
 }
 
