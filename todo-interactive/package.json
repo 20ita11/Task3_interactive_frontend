@@ -2,7 +2,7 @@
   "homepage": "https://20ita11.github.io/Task3_interactive_frontend",
   "name": "todo-interactive",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
