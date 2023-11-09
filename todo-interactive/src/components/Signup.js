@@ -1,23 +1,40 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
-const Signup = ({ handleSignup }) => {
-  const [signupData, setSignupData] = useState({ email: '', username: '', password: '' });
+const Signup = () => {
+  const [signupData, setSignupData] = useState({ email: '', name: '', password: '' });
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); 
+  const handleSignupClick = async () => {
+    try {
+      const response = await fetch('https://nm-backend-ctri.onrender.com/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupData),
+      });
 
-  const handleSignupClick = () => {
-    handleSignup(signupData);
+      if (response.ok) {
+        console.log('Signup successful');
+        navigate('/'); 
+      } else {
+        console.error('Signup failed');
+      }
+    } catch (error) {
+      alert("no value present");
+      console.error('An unexpected error occurred', error);
+    }
   };
 
   const goToLogin = () => {
-    navigate('/login'); 
+    navigate('/');
   };
 
   return (
     <div className="container">
       <div className="header">
-        <h1>Sign Up</h1>
+        <h1 className='header-h1'>Sign Up</h1>
       </div>
       <div className="form-group">
         <label htmlFor="email">Email:</label>
@@ -52,7 +69,9 @@ const Signup = ({ handleSignup }) => {
       <button type="submit" className="btn" onClick={handleSignupClick}>
         Sign Up
       </button>
-      <button className="btn login-button" onClick={goToLogin}>Login</button> 
+      <button className="btn login-button" onClick={goToLogin}>
+        Login
+      </button>
     </div>
   );
 };
