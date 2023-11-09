@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 import styles from '../css/styles.css';
 
 
 const Login = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
-  // const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
 
   const handleLoginClick = async () => {
     try {
@@ -25,7 +25,7 @@ const Login = () => {
           console.log("workignn");
           localStorage.setItem("userEmail", loginData.email);
           localStorage.setItem('userUid',result.id)
-          // navigate('/index');
+          navigate('/index');
         } else {
           alert("incorrect value ");
 
@@ -43,9 +43,9 @@ const Login = () => {
     }
   };
 
-  // const goToSignup = () => {
-  //   navigate('/signup'); 
-  // };
+  const goToSignup = () => {
+    navigate('/signup'); 
+  };
 
   return (
     <div className="container">
@@ -75,7 +75,7 @@ const Login = () => {
       <button type="submit" className="btn form-group" onClick={handleLoginClick}>
         Login
       </button>
-      {/* <button onClick={goToSignup} className="btn">Signup</button>  */}
+      <button onClick={goToSignup} className="btn">Signup</button> 
     </div>
   );
 };
